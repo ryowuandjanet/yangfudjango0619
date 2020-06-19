@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>更新評量表</h1>
+<div class="post-entry">
+	<form action="" method="post">{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="更新" class="btn btn-primary">
+	</form>
+</div>
+{% endblock content %}

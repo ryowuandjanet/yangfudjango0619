@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Django Blog</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-4.5.0.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome-5.13.0-all.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro: " rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+</head>
+
+<body>
+    <header>
+        <div class="nav-left">
+            <h1><a href="/">Djanog blog</a></h1>
+        </div>
+        <div class="nav-right">
+            <a href="{% url 'case_new' %}">+ New Case</a>
+        </div>
+    </header>
+    <div class="base-container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper-1.16.0.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.5.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/fontawesome-5.13.0-all.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+{% extends "../base.html" %}
+{% block content %}
+	<h1>評量表清單</h1>
+	<table class="table">
+		<thead class="bg-dark text-light">
+			<tr>
+				<th>案號</th>
+				<th>縣市</th>
+				<th>鄉鎮區</th>
+				<th>段號</th>
+				<th>小段</th>
+				<th>住址</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for obj in object_list %}
+				<tr>
+					<td><a href="{% url 'case_detail' obj.pk %}">{{ obj.case_number }}</a></td>
+					<td>{{ obj.country }}</td>
+					<td>{{ obj.township }}</td>
+					<td>{{ obj.big_section }}</td>
+					<td>{{ obj.small_section }}</td>
+					<td>{{ obj.other_address }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock content %}
+

@@ -1,0 +1,14 @@
+{% extends "../base.html" %}
+{% block content %}
+<h1>評量表明細</h1>
+<div class="post-entry">
+	<h2>{{object.case_number}}</h2>
+	<p>{{object.country}}</p>
+	<p>{{object.township}}</p>
+	<p>{{object.big_section}}</p>
+	<p>{{object.small_section}}</p>
+	<p>{{object.other_address}}</p>
+</div>
+<a href="{% url 'case_edit' case.pk %}" class="btn btn-success btn-sm">+ Edit Case Post</a>
+<a href="{% url 'case_delete' case.pk %}" class="btn btn-danger btn-sm">+ Delete Case Post</a>
+{% endblock content %}
