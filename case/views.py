@@ -29,3 +29,9 @@ class CaseDeleteView(DeleteView):
 	model=Case
 	template_name="case/case_delete.html"
 	success_url=reverse_lazy('home')
+	
+def load_township(request):
+    country_id = request.GET.get('country')
+    township = Township.objects.filter(country_id=country_id).order_by('name')
+    return render(request, 'case/city_dropdown_list_options.html', {'township': township})
+

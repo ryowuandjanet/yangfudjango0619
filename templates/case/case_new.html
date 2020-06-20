@@ -3,8 +3,34 @@
 {% block content %}
 <h1>建立評量表</h1>
 <div class="post-entry">
-	<form action="" method="post">{% csrf_token %}
+	<form action="" method="post" id="CaseForm" data-township-url="{% url 'ajax_load_township' %}" novalidate>{% csrf_token %}
 		{% crispy form %}
 	</form>
 </div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+$("#id_country").change(function () {
+  // get the url of the `load_cities` view
+  var url = $("#CaseForm").attr("data-township-url");  
+  // get the selected country ID from the HTML input
+  var countryId = $(this).val();  
+  
+  // initialize an AJAX request
+  $.ajax({   
+    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)                    
+    url: url,                    
+    data: {
+      // add the country id to the GET parameters
+      'country': countryId       
+    },
+    // `data` is the return of the `load_cities` view function
+    success: function (data) {   
+      // replace the contents of the city input with the data that came from the server
+      $("#id_township").html(data);  
+    }
+  });
+
+});
+</script>
+
 {% endblock content %}
