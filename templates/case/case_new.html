@@ -1,10 +1,10 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
 <h1>建立評量表</h1>
 <div class="post-entry">
 	<form action="" method="post">{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="建立" class="btn btn-primary">
+		{% crispy form %}
 	</form>
 </div>
 {% endblock content %}
